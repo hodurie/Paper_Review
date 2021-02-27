@@ -1,2 +1,3 @@
 CNN
 - Simonyan, K., & Zisserman, A. (2015). Very Deep Convolutional Networks for Large-Scale Image Recognition. *CoRR, abs/1409.1556.* [[pdf](https://arxiv.org/pdf/1409.1556.pdf)]
+- Szegedy, C., Liu, W., Jia, Y., Sermanet, P., Reed, S., Anguelov, D., Erhan, D., Vanhoucke, V., & Rabinovich, A. (2015). Going deeper with convolutions. *2015 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)*, 1-9. [[pdf](https://arxiv.org/pdf/1409.4842.pdf)]
