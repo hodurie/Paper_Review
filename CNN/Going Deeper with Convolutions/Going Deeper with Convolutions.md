@@ -51,6 +51,11 @@ fc layer을 sparsely connected로 변경
 ## Inception Architecture 
 Inception 주된 idea는 최적의 local sparse 구조로 근사화 하고 dense 요소로 변환
 
+<img src='image/Inception module.png'>
+
+그림 (a)의 경우 위의 필터들로만 구성한 모듈
+그림 (b)의 경우 `1x1` 필터들을 추가한 모듈
+
 세 가지 필터의 크기 사용
 - `1x1`
     - 국소적인 부분의 patch 생성
@@ -67,7 +72,10 @@ Inception 주된 idea는 최적의 local sparse 구조로 근사화 하고 dense
 - 이들을 clustering 하여 채널 수를 줄임
 - 차원 감소
     - bottleneck 감소
-    
+
+
+최종적인 모델 모습
+
 <img src='image/Model.png'>
 <img src='image/GoogLeNet.png'>
 
