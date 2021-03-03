@@ -1,18 +1,24 @@
 # Going Deeper with Convolutions
 본 논문은 2014 ILSVRC에서 우승한 GoogLeNet을 다룸 
 
-## GoogLeNet 이전 모델
+## Abstract
+GoogLeNet의 주된 특징
+- 네트워크 안에서 `computing resources`의 활용성을 향상
+- `computational budget`을 유지하며 네트워크의 depth와 width를 확장
+    - Hebbian principle & the intuition of multi-scale processing.
+
+## Introduction
+### GoogLeNet 이전 모델
 AlexNet 모델
 - 2012 ILSVRC 우승
 - 8개의 layer 사용
 - parameter 수 62M
 
-## 딥러닝의 추세
+### 딥러닝의 추세
 1. stacked conv layers + fc layers(1 or more)
 2. layer의 수와 layer size 증가
 3. Dropout을 통해 overfitting 방지
 
-## GoogLeNet
 GoogLeNet도 추세를 따름
 - stacked layers + fc layers
 - layer 수 22개, wide한 layer
@@ -21,28 +27,29 @@ GoogLeNet도 추세를 따름
 - Dropout 사용
 - NIN(Network In Network) 사용
 
+## Related Work
 ### Network In Network
 NIN은 기존 conv layer에 MLP 추가
 - 기존 conv layer는 GLM
     - 각 자리의 픽셀과 weight의 곱/합 연산
 - conv layer에 MLP 추가
     - 비선형적 관계 표현 증가
+- `1x1` 필터 사용
+    - `computational bottlenecks` 줄이기 위한 차원 축소의 역할
+    - network의 depth와 width를 확장 가능
+
 <img src='image/Network In Network.jpg'>
 
-### GoogLeNet의 단점
-성능을 위해 depth와 width 늘림
+## Motivation and High Level Considerations
+큰 사이즈의 모델은 많은 파라미터가 필요함을 의미
+- 제한된 라벨 셋에서는 overfitting 될 수 있음
+    - 특히, training data가 전문가가 구분할 정도로 어려운 문제일 때
+- 계산량의 증가
 
-1. depth 증가
-    - parameter 수 증가
-    - overfitting 위험
-    - bottleneck
-2. network size 증가
-    - 연산 자원의 사용 증가
-    - 연산량 증가
+<img src='image/dogs.png'>
 
-### GoogLeNet 단점 해결책
-fc layer을 sparsely connected로 변경
-- conv layer에서도 sparsely로 변경
+위의 문제를 해결하기 위한 방법
+- CNN에서 `sparsely connected architectures` 이용
 
 하지만 sparse 한 structure은 하드웨어 계산에서 비효율
 - 전체적으론 Sparse
