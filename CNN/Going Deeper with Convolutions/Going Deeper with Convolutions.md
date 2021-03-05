@@ -84,7 +84,7 @@ Inception module을 처음부터 사용하지 않은 이유?
 ## GoogLeNet
 <img src='image/GoogLeNet.png'>
 
-중간에 있는 **reduce** 는 `#필터` 전 1x1` 필터 후 relu 함수 적용함을 의미
+중간에 있는 **reduce** 는 `#필터` 전 `1x1` 필터 후 relu 함수 적용함을 의미
 
 <img src='image/Model.png'>
 
