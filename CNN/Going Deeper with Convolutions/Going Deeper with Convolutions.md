@@ -74,24 +74,25 @@ input과 가까운 값들은 local region의 patch를 많이 생성
 
 <img src='image/Inception module.png'>
 
-그림 (a)의 경우 위의 필터들로만 구성한 모듈
-그림 (b)의 경우 `1x1` 필터들을 추가한 모듈
+처음에는 그림 (a)의 형태 였지만 계산량 폭발로 그림 (b)의 형태로 변경
+- 그림 (b)의 경우 conv 이전에 `1x1` 필터를 사용해 차원 감소
+- 계산 폭발이 일어나지 않는 선에서 unit 수를 증가시킬 수 있었음
 
+Inception module을 처음부터 사용하지 않은 이유?
+- training 중 메모리 효율을 위해서
 
-### `1x1` 필터 효과
-채널의 수 감소
-- `1x1`은 입력 데이터의 국소적인 부분 patch를 생성
-- patch들은 비슷한 형태를 띰
-- 이들을 clustering 하여 채널 수를 줄임
-- 차원 감소
-    - bottleneck 감소
-
-
-최종적인 모델 모습
-
-<img src='image/Model.png'>
+## GoogLeNet
 <img src='image/GoogLeNet.png'>
 
+중간에 있는 **reduce** 는 `#필터` 전 1x1` 필터 후 relu 함수 적용함을 의미
+
+<img src='image/Model.png'>
+
+GoogLeNet은 모델의 깊이가 커짐에 따라 `Gradient Vanishing` 문제에 걱정을 함
+- 좋은 성능을 내는 중간층에 `Auxiliary classifiers`를 연결
+
+## Conclusions
+sparse 구조를 dense 구조로 근사화하면 성능이 좋다!
 
 ## Reference
 - [Network In Network](https://arxiv.org/pdf/1312.4400.pdf)
