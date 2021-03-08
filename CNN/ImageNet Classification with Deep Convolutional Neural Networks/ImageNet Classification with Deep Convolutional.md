@@ -52,7 +52,7 @@ $$ b_{x, y}^{i} = a_{x, y}^{i} \, / \left(k + \alpha + \sum_{j=max(0,i-n/2)}^{mi
 - $n$ = 5, $\alpha$ = $10^{-4}$, $\beta$ = 0.75, $k$ = 2 로 설정
 
 위의 식은 혼자 튀는 값을 억제해 줌
-- 이후 ReLU 적용
+- ReLU 적용 후 정규화 실행
 
 ### Overlapping Pooling
 동일한 kernel map에 주변 뉴런들의 output을 요약해줌
