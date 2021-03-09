@@ -1,19 +1,22 @@
 # Very Deep Convolutional Networks for Large-Scale Image Recognition
-본 논문은 2014년 ILSVRC에서 준우승한 모델인 **VggNet**을 다루고 있다.  
-논문의 abstract에서 말하는 주된 기여도 다음과 같이 요약할 수 있다.  
-```
+본 논문은 2014년 ILSVRC에서 준우승한 모델인 **VggNet**을 다룸
+
+## Abstract
+VGGNet의 특징
 1. 3 x 3 필터 사용
 2. 16-19개의 weight layer 사용
-```
-기존의 CNN 모델의 경우 깊은 layer을 사용하지 않았다.  
-반면 VGGNet은 layer의 개수를 늘리고 고정적으로 3 x 3 필터 사용해 모델의 정확도를 높였다.  
 
+기존의 CNN 모델의 경우 깊은 layer을 사용하지 않음
+반면 VGGNet은 layer의 개수를 늘리고 고정적으로 3 x 3 필터 사용해 정확도 높임
 
-그럼 VGGNet이 무엇이며 어떻게 기여를 하였는지 자세히 알아보도록 하자.
+## Introduction
+ConvNet의 깊이에 대해 신경 씀  
+또한 `3x3` 필터 사용
 
-## VggNet 구조
-VggNet는 `224x224` 크기의 RGB 이미지를 입력으로 받는다.  
-- 학습 데이터 셋에서 계산한 평균 RGB 값을 빼주는 전처리 작업 진행  
+## ConvNet Configurations
+### Architecture
+ConvNet의 input size를 RGB `224x224` 이미지로 고정
+- 전처리는 RGB 평균값만 빼줌 
 
 입력값을 `conv`층을 통과 시킴
 - 필터의 크기는 `3x3`
@@ -28,35 +31,43 @@ VggNet는 `224x224` 크기의 RGB 이미지를 입력으로 받는다.
 - 첫 번째와 두 번째 층은 `4096` channels
 - 마지막 층은 `1000` channels
 
-
-모든 `hidden` layers은 `ReLu`를 사용
+모든 `hidden` layers은 `ReLU`를 사용
 - `Local Response Normalisation` 적용하지 않음
+
+### Configurations
+실험한 모델은 depth만 달리함
+- depth가 달라졌지만 파라미터의 수는 큰 차이가 없음
 
 <img src='image/VggNet_Architecture.png'>
 
-위의 표를 보면 `conv`층을 여러번 쌓아서 사용했는데  
-이는 두 가지 측면에서 이점이 존재한다.
-- 하나가 아닌 여러 개의 비선형 레이어를 사용해 결정 함수가 더 잘 구별하게 만듦
+### Discussion
+이전 모델은 `11x11` 또는 `7x7`의 필터를 사용
+- VGGNet의 경우 `3x3` 필터를 여러번 이어 붙임
+- `3x3` 필터를 3번 쌓으면 `7x7`만큼 효과적인 수용장을 만들 수 있음
+
+`3x3` 필터의 사용 이유
+- 3개의 비선형 층을 사용해 결정 함수가 더 잘 구분하게 만듦
 - 파라미터의 수를 줄일 수 있음
+    - `7x7` 필터 weight : $7^2C^2 = 49C^2$ 
+    - `3x3` 필터 3개 weight : $3(3^2C^2) = 27C^2$ 
 
-## 모델 학습
-### 학습 파라미터
-`multinomial logistic regression`를 최적화
-- `momentum`이 있는 `mini-batch gradient descent` 적용
-- batch size : `256`, momentum :`0.9`, $L_{2}$ : $5*10^{-4}$
+## Classification Framwork
+### Training
+AlexNet에서 사용한 기법 사용
+- 이미지를 horizontal flip, RBG color shift 사용
 
-첫 번째, 두 번째 FC 층에서 dropout : `0.5`  
-learning rate : $10^{-2}$  
-weight, bias 초기값
-- 얕은 층(모델 A)의 weight를 사용
-- 가중치 초기화 값 : $N(0, 10^{-2})$
-- bias : `0`
+이미지를 특정 방식에 따라 rescale해서 crop
+- 이미지의 width와 height 중 작은 쪽을 `S`라 명명
+    - 1. S를 `256` 또는 `384`에 맞춤
+    - 2. S를 [256, 512] 사이의 값으로 랜덤하게 rescale
 
-학습 이미지를 `224x224`로 만들기 위해 랜덤하게 crop
-- 이미지 crop 전에 이미지의 가로, 세로 중 작은 쪽을 `S`라 설정
-- 비율에 맞춰 re-scale 하는데 `S`가 `224`이면 이미지 전체를 사용
-- `S`가 `224`보다 클 경우 crop
+### Testing
+이미지의 width와 height 중 작은 쪽을 `Q`라 명명
+- 이미지를 다양한 사이즈로 rescale하여 crop
+- horizontal flip 적용
 
-## 모델 테스트
-이미지의 크기를 다양하게 re-scale
-- 이미지의 가로 및 세로 중 작은 쪽을 `224`로 맞출 필요 없음
+## Conclusion
+depth가 커지만 accuracy에 영향을 줌
+
+## Reference
+- [[논문 리뷰] VGGNet(2014) 리뷰와 파이토치 구현](https://deep-learning-study.tistory.com/398)
