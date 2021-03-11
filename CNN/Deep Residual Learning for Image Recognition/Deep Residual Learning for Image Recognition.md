@@ -41,7 +41,32 @@ ResNet의 장점을 설명하고 있음
 
 ## Deep Residual Learning
 ### Residual Learning
+한 가정은 기존 $H(x)$를 $F(x) := H(x) -x$식을 써 $F(x) + x$로 근사하는 방법이 더 낫다고 말함
 
+### Identity Mapping by Shortcuts
+$$ y = F(x, {W_i}) + x $$
+- 위의 식을 간단히 하기 위해 bias 생략
+- $F(x, {W_i})$는 $ W_2 \sigma(W_1x) $로, $\sigma$는 relu 함수를 의미
+- 둘의 dimension이 동일 할 때 위의 식을 씀
+
+$$ y = F(x, {W_i}) + W_sx $$
+- 둘의 dimension이 동일하지 않을 때 위의 식을 씀
+- linear projection을 사용해 dimension을 통일 시킴
+- $W_s$는 dimension을 맞추는 역할
+
+### Network Architectures
+#### Plain Network
+VGGNet을 참고하여 모델을 만듦
+
+#### Residual Network
+Plain Network에 shortcut connection을 추가
+- zero padding을 사용해 추가의 parameter 없이 dimension을 통일
+- projection 을 사용해 dimension 맞춤
+
+## Experiments
+다양한 데이터셋에 plain 모델과 ResNet 모델을 비교
+- ResNet이 degradation problem을 잘 조절
+- optimize 하기 쉬움
 
 ## Reference 
-- []()
+- [[논문 리뷰] Deep Residual Learning for Image Recognition - ResNet(1)](https://jxnjxn.tistory.com/22)
