@@ -34,6 +34,7 @@ $H(x)$를 기존 네트워크에 입력값 $x$ 를 더한 형태인 $F(x) + x$�
 이와 같은 형태를 `Shortcut connections`이라 명명  
 
 이에 대한 효과는  
+- 기본 함수를 잔차를 0으로 만드는 방향으로 만듦
 - optimze 하기가 더 쉬움
 
 ## Related Work
