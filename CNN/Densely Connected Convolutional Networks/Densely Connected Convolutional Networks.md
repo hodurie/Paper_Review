@@ -80,3 +80,36 @@ DenseNet의 hyper-parameter : $k$
 - $\lfloor m\theta \rfloor$를 이용해 feature map 조절
     - $0 \leq \theta \leq 1 $는 compression factor 라 함
 - $\theta =1$ 일때는 feature map의 크기가 변하지 않음
+
+## Discussion
+ResNet과 DenseNet의 차이는 sum or concat 이냐
+- 작은 차이가 아키텍처의 동작을 크게 달라지게 함
+
+### Model compactness
+concatenation을 통해 DenseNet layer에서 학습한 feature map을 모든 후속 layer에서 접근할 수 있음
+- 네트워크에 feature reuse을 이끌어 compact 하게 만듦
+
+### Implicit Deep Supervision
+DenseNet의 성능 향상은 supervision 때문
+- 각 layer들이 short connection을 통해 loss function으로 추가적인 supervision을 받음
+### Stochastic vs deterministic connection
+Stochastic depth : ResNet의 layer을 random으로 drop 하는 방법
+- 주변 layer 간 direct connection을 만듦
+- pooling layer는 drop 하지 않음
+- DenseNet과 유사한 connectivity pattern을 가짐
+
+### Feature Reuse
+1. 동일한 Block 내 모든 layer에 많은 input의 가중치를 분산함
+- 초기에 만들어진 feature가 Block 마지막에서도 잘 사용됨
+
+2. transition layer도 weight을 이전 Dense Block에 골고루 퍼트림
+
+3. 두, 세번째 Dense Block의 layer들은 transition layer 출력에 일관되게 적은 가중치를 줌
+- 불필요한 정보들이 많다는 의미
+
+4. final classification layer도 전체 Dense Block의 가중치를 사용함
+- 하지만 최종 feature map에 더 집중함
+
+
+## Reference
+- [(DenseNet) Densely Connected Convolutional Networks 번역 및 추가 설명과 Keras 구현](https://sike6054.github.io/blog/paper/sixth-post/)
