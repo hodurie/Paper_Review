@@ -1,0 +1,2 @@
+Object Detection
+- Sermanet, P., Eigen, D., Zhang, X., Mathieu, M., Fergus, R., & LeCun, Y. (2014). OverFeat: Integrated Recognition, Localization and Detection using Convolutional Networks. *CoRR, abs/1312*.6229. [[pdf](https://arxiv.org/pdf/1312.6229.pdf)]
