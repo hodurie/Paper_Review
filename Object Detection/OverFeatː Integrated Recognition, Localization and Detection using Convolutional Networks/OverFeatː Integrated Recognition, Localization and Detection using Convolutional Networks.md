@@ -63,5 +63,26 @@ regression network는 layer 5 에서 feature map을 입력으로 받음
 예측값과 ground-truth 값을 비교해 regressor 학습
 - ground-truth와 50% 미만으로 겹치는 박스는 학습하지 않음
 
+### Combining Predictions
+1. 이미지에 대해 top k개에 대한 class 할당
+    - 이미지 스케일을 6개로 만듦
+2. 각 클래스에 대한 bounding box를 각 스케일마다 confidence 예측
+3. 각각의 bounding box에 대한 거리와 겹치는 부분의 거리를 최소로 하는 box를 구함
+4. 거리를 최소로하며 confidence가 50% 이상인 부분의 box 들을 합침
+5. 낮은 confidence의 값은 없앰
+
+## Detection
+classification 모델의 weight를 공유
+- object가 없는 경우에는 negative example로 학습
+
+ILSVRC13 competition에서 오류율이 낮으면서 높은 mAP를 얻음
+
+## Discussion
+1. multi-scale, sliding window 접근을 ConvNet에 효과적으로 선보임
+2. 개선 될 여지가 있음
+    - back propping 사용
+    - L2 손실 대신 IOU 최적화
+    - bounding box 매개 변수화
+
 ## Reference
 - [Paper Review - Object Detection 2 (OverFeat: Integrated Recognition, Localization and Detection using Convolutional Networks)](https://wujincheon.github.io/wujincheon.github.io/deep%20learning/2019/02/15/overfeat.html)
