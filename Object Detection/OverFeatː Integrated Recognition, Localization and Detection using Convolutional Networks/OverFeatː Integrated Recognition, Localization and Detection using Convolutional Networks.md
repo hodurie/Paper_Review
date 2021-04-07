@@ -13,13 +13,13 @@
 
 ## Vision Tasks
 1. Classification
-- 각 이미지에 해당 하는 label이 존재, 5번의 추측을 통해 정답을 맞추는 방식
+    - 각 이미지에 해당 하는 label이 존재, 5번의 추측을 통해 정답을 맞추는 방식
 
 2. Localization task
-- 이미지당 5번의 추측이 가능하며, object의 bounding box를 맞추는 방식
+    - 이미지당 5번의 추측이 가능하며, object의 bounding box를 맞추는 방식
 
 3. Detection
-- 이미지 속에 0개 또는 그 이상의 object를 찾아내는 것
+    - 이미지 속에 0개 또는 그 이상의 object를 찾아내는 것
 
 ## Classification
 ### Multi-Scale Classification
