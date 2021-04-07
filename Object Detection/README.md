@@ -1,2 +1,3 @@
 Object Detection
+- Girshick, R.B., Donahue, J., Darrell, T., & Malik, J. (2014). Rich Feature Hierarchies for Accurate Object Detection and Semantic Segmentation. *2014 IEEE Conference on Computer Vision and Pattern Recognition*, 580-587.[[pdf](https://arxiv.org/pdf/1311.2524.pdf)]
 - Sermanet, P., Eigen, D., Zhang, X., Mathieu, M., Fergus, R., & LeCun, Y. (2014). OverFeat: Integrated Recognition, Localization and Detection using Convolutional Networks. *CoRR, abs/1312*.6229. [[pdf](https://arxiv.org/pdf/1312.6229.pdf)]
