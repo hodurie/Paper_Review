@@ -62,7 +62,6 @@ R-CNN은 세 가지의 모듈로 구성 됨
         > 
         > - IoU(inter-section-over-union)   
         >   두 이미지의 겹치는 부분(교집합) / 두 이미지를 합친 부분(합집합)
-    5. 
 
 - Run-time analysis
     - 모든 CNN의 파라미터가 모든 카테고리에 공유 됨
