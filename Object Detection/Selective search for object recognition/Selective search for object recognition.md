@@ -48,8 +48,13 @@ Selective Search
 5. 전체 영역이 하나의 통합 된 영역이 될 때까지 반복
 
 ## Object Recognition using Selective Search
+<img src='image/selective_search.png'>
 
-## Conclusions
+1. positive learning examples로 ground truth 사용
+2. negative learning examples로 ground truth와 20~50% 겹치는 부분을 사용
+3. SVM 학습
+4. SVM 결과 중 false positive를 찾고 negative examples에 추가
+5. SVM fine-tuning
 
 ## Reference
 - [Selective Search 논문 리뷰 및 요약](https://mainpower4309.tistory.com/27)
