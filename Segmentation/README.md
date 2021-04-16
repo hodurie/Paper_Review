@@ -1,0 +1,2 @@
+Segmentation
+- Shelhamer, E., Long, J., & Darrell, T. (2017). Fully Convolutional Networks for Semantic Segmentation. *IEEE Transactions on Pattern Analysis and Machine Intelligence, 39*, 640-651. [[pdf](https://arxiv.org/pdf/1411.4038.pdf)]
