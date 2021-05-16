@@ -4,4 +4,5 @@ CNN
 - Szegedy, C., Liu, W., Jia, Y., Sermanet, P., Reed, S., Anguelov, D., Erhan, D., Vanhoucke, V., & Rabinovich, A. (2015). Going deeper with convolutions. *2015 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)*, 1-9. [[pdf](https://arxiv.org/pdf/1409.4842.pdf)]
 - He, K., Zhang, X., Ren, S., & Sun, J. (2016). Deep Residual Learning for Image Recognition. *2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)*, 770-778. [[pdf](https://arxiv.org/pdf/1512.03385.pdf)]
 - Huang, G., Liu, Z., & Weinberger, K.Q. (2017). Densely Connected Convolutional Networks. *2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)*, 2261-2269. [[pdf](https://arxiv.org/pdf/1608.06993.pdf)]
+- Chollet, F. (2017). Xception: Deep Learning with Depthwise Separable Convolutions. *2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)*, 1800-1807. [[pdf](https://arxiv.org/pdf/1610.02357v3.pdf)]
 - Tan, M., & Le, Q.V. (2019). EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks. *ArXiv, abs/1905.11946*. [[pdf](https://arxiv.org/pdf/1905.11946.pdf)]
