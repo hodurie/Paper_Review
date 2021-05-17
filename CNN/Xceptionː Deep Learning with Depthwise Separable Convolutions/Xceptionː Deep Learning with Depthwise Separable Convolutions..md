@@ -44,6 +44,30 @@ Xception(Extreme Inception)
 - 36개의 layer가 존재하며 14개의 모듈로 구조화 됨
 - 또한 첫번째와 마지막 모듈을 제외하고 linear residual connection이 존재
 
+## Experimental evaluation  
+Inception V3 와 Xception을 비교함
+
+<img src='images/dataflow.png'>  
+
+Xception의 architecture
+- Entry flow - Middle flow 8번 반복 - Exit Flow
+- 각 Conv와 SeparableConv 뒤엔 Batch norm 적용
+
+<img src='images/accuracy.png' height=280>
+
+- Inception V3보다 Xception accuracy가 더 높음
+
+<img src='images/MAP.png' height=600>
+
+- MAP에서도 Xception이 더 높음
+
+<img src='images/param.png' height=150>
+
+- parameter의 수도 Xception이 더 적음
+
+## Conclusions
+Inception 모듈을 depthwise separable convolution으로 교체 
+- Inception V3 보다 적은 parameter를 사용해 좋은 accuracy를 보임
 
 ## Reference
 - [08 Xception: Deep Learning with Depthwise Separable Convolutions](https://wikidocs.net/122179)
