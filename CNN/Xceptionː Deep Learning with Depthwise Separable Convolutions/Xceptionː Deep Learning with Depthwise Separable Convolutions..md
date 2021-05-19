@@ -38,6 +38,9 @@ depthwise separable convolution과 유사하지만 차이점이 존재
     - depthwise separable convolution 적용하지 않음
     - extreme version은 적용
 
+- 첫 번째 차이는 쌓는 순서의 차이일 뿐 동일한 효과를 냄
+    - 구현시 depthwise separable convolution 사용해도 무방함
+
 ## The Xception architecture
 Xception(Extreme Inception)
 - cross-channel correlation과 spatial correlation을 완벽히 분리
