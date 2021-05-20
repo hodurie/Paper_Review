@@ -5,4 +5,6 @@ CNN
 - He, K., Zhang, X., Ren, S., & Sun, J. (2016). Deep Residual Learning for Image Recognition. *2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)*, 770-778. [[pdf](https://arxiv.org/pdf/1512.03385.pdf)]
 - Huang, G., Liu, Z., & Weinberger, K.Q. (2017). Densely Connected Convolutional Networks. *2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)*, 2261-2269. [[pdf](https://arxiv.org/pdf/1608.06993.pdf)]
 - Chollet, F. (2017). Xception: Deep Learning with Depthwise Separable Convolutions. *2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)*, 1800-1807. [[pdf](https://arxiv.org/pdf/1610.02357v3.pdf)]
+- Howard, A.G., Zhu, M., Chen, B., Kalenichenko, D., Wang, W., Weyand, T., Andreetto, M., & Adam, H. (2017). MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications. *ArXiv, abs/1704.04861*. [[pdf](https://arxiv.org/pdf/1704.04861.pdf)]
+- Sandler, M., Howard, A.G., Zhu, M., Zhmoginov, A., & Chen, L. (2018). MobileNetV2: Inverted Residuals and Linear Bottlenecks. *2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition*, 4510-4520. [[pdf](https://arxiv.org/pdf/1801.04381.pdf)]
 - Tan, M., & Le, Q.V. (2019). EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks. *ArXiv, abs/1905.11946*. [[pdf](https://arxiv.org/pdf/1905.11946.pdf)]
