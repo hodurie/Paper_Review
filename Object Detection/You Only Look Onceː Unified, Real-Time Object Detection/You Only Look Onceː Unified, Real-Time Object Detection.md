@@ -30,12 +30,39 @@
 - object detection의 요소들을 single neural network로 통합
     - 전체 이미지의 feature를 이용해 모든 class에 대한 bbox를 구함
     - simple piepline으로 end-to-end 학습이 가능
-    - 속도도 빠르면서 준수한 average precision 유지
+    - 속도도 빠르면서 준수한 average precision 유지  
   
-- YOLO model
+- YOLO model object detection 방식
 
-<img src='images/fig2.png'>
+<img src='images/fig2.png' height=600>
 
-1. 이미지를 $S \times S$ grid로 나눔
-2. 객체의 중심이 grid cell에 속해있으면 grid cell이 해당 객체를 탐지
-3. 각 grid cell은 bbox와 confidence score를 예측
+- 이미지를 $S \times S$ grid로 나눔
+- 객체의 중심이 grid cell에 속해있으면 grid cell이 해당 객체를 탐지
+- 각 grid cell은 $B$개의 bbox와 confidence score를 예측
+- object가 존재할 때 각 class 별 확률을 구함
+    - $P(Class_{i}|Object)$
+
+### Network Design
+
+<img src='images/fig3.png' height=350>
+
+- GoogLeNet 기반 CNN 구조
+    - 24개 conv layer와 2개의 fc layer로 구성
+    - Inception 모듈 대신 $1\times1$ 이후 $3\times3$ conv layer사용
+- Fast YOLO는 9개의 Conv Layer 사용
+
+### Training
+- 앞 20개의 layer는 ImageNet을 이용해 pretrain 하고 average pooling layer와 fc layer를 덧붙임
+- 마지막 layer은 linear activation 적용 나머지는 leaky ReLU 적용
+- SSE를 Loss function으로 정의
+    - 문제점
+        - localization error와 classification error에 동일한 가중치를 줌
+        - 배경 cell이 많아 confidence가 0인 값이 많음
+- 문제를 해결하기 위해 가중치를 다르게 줌
+    - localization error의 가중치를 높임
+
+###  Limitations of YOLO
+
+
+## Reference
+- [논문 리뷰 - YOLO(You Only Look Once) 톺아보기](https://bkshin.tistory.com/entry/%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0-YOLOYou-Only-Look-Once)
