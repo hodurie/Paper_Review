@@ -61,8 +61,41 @@
 - 문제를 해결하기 위해 가중치를 다르게 줌
     - localization error의 가중치를 높임
 
-###  Limitations of YOLO
+### Limitations of YOLO
+- 하나의 grid cell은 하나의 class만 예측
+    - 겹쳐있는 object를 잘 탐지하지 못 함
+- 데이터로 부터 bbox 추출하므로 새롭거나 일반적이지 않은 종횡비는 잘 예측 못함
+- 큰 BBox와 작은 BBox에 동일한 가중치를 줌
+    - localization에 안 좋은 영향을 끼침
 
+## Experiments
+
+### Comparison to Other Real-Time Systems
+<img src='images/tab1.png'>
+
+- YOLO 계열의 모델이 준수한 mAP와 FPS를 챙김
+- 다른 모델들은 FPS와 mAP 간의 trade-off가 존재
+
+### VOC 2007 Error Analysis
+
+<img src='images/fig4.png' height=570>
+
+- Fast R-CNN의 경우 Background error가 YOLO에 비해 높은 편
+    - Background error 
+        - 물체가 없지만 있다고 판단
+    - False Positive가 높음
+- YOLO의 경우 Localization error가 Fast R-CNN에 비해 높은 편
+
+### VOC 2012 Results
+
+<img src='images/tab3.png'>
+
+- 여러 모델중 YOLO만 실시간 탐지가 가능함
+- 하지만 Fast R-CNN과 YOLO를 합친 모델이 4위를 할만큼 성능도 준수
+
+## Conclusion
+- YOLO는 단순 하지만 실시간으로 작동하며 준수한 성능을 냄
+- 새로운 이미지에 대한 객체 검출도 잘함
 
 ## Reference
 - [논문 리뷰 - YOLO(You Only Look Once) 톺아보기](https://bkshin.tistory.com/entry/%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0-YOLOYou-Only-Look-Once)
