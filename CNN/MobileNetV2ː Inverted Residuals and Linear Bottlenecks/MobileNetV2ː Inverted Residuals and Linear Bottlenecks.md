@@ -41,6 +41,15 @@ maniford 가설
 
 ### Inverted residuals
 
+<img src='images/figure3.png' width=650>
+
+- Residual Block 유사하나 차이점이 있음
+    - wide - narrow - wide 방식에서 narrow - wide- narrow 방식을 취함
+    - 다른 활성화 함수 사용
+        - ReLU, ReLU6
+
+## Conclusions
+- 고 효율 모바일 모델을 만듦
 
 ## Reference
 - [MobileNetV2(모바일넷 v2), Inverted Residuals and Linear Bottlenecks](https://gaussian37.github.io/dl-concept-mobilenet_v2/)
